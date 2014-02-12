@@ -1,21 +1,30 @@
 require 'spec_helper'
 
-describe "StaticPages" do
-	let(:base_title) { "CGEK" }
+describe "Static pages" do
+	
+	subject { page }
+
+	shared_examples_for "all static pages" do
+		it { should have_selector('h1', text: heading) }
+		it { should have_title(full_title(page_title)) }
+	end
+
 	describe "Home page" do
-		it "should have content 'CGEK' " do
-			visit root_path
-			expect(page).to have_content('CGEK')
-		end
+		before { visit root_path }
+		let(:heading)		{ 'CGEK' }
+		let(:page_title)	{ '' }
 
-		it "should have the base title" do
-			visit root_path
-			expect(page).to have_title("CGEK")
-		end
+		it_should_behave_like "all static pages"
+		it { should_not have_title('Home - ') }
+	end
 
-		it "should not have a custom page title" do
-			visit root_path
-			expect(page).not_to have_title('Home - ')
-		end
+	it "should have the right links on the layout" do
+		visit root_path
+		click_link "Sign up"
+		expect(page).to have_title(full_title('Sign up'))
+		click_link "CGEK"
+		expect(page).to have_title(full_title(''))
+		click_link "Home"
+		expect(page).to have_title(full_title(''))
 	end
 end
