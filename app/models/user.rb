@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
 					  uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX, message: "must have at least one capital letter, one lowercase letter, and one number."}
+	has_attached_file :image, :styles => { :thumb => "100x100" }
 end
