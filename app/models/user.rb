@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 					  uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX, message: "must have at least one capital letter, one lowercase letter, and one number."}
-	has_attached_file :image, :styles => { :thumb => "100x100" }
+	has_attached_file :image, :styles => { :profile => "100x100", :index => "75x75", :thumb => "50x50" }
 
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64
