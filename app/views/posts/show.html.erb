@@ -1,0 +1,15 @@
+<% provide(:title, @post.title) %>
+<h1><%= @post.title %></h1>
+<%= @post.content %>
+<% if signed_in? %>
+	<section>
+		<%= render 'shared/micropost_form' %>
+	</section>
+<% end %>
+<% if @post.microposts.any? %>
+	<h3>Responses (<%= @post.microposts.count %>)</h3>
+	<ol class="microposts">
+		<%= render @microposts %>
+	</ol>
+	<%= will_paginate @microposts %>
+<% end %>

@@ -2,12 +2,15 @@ class MicropostsController < ApplicationController
 	before_action :signed_in_user
 
 	def create
-		@micropost = current_user.microposts.build(micropost_params)
+		@post = Post.find(params[:post_id])
+		@micropost = @post.microposts.create(micropost_params)
+		@micropost.user = User.find(current_user.id)
 		if @micropost.save
-			flash[:success] = "Resposne created"
-			redirect_to root_url
+			flash[:success] = "Response submitted."
+			redirect_to post_path(@post)
 		else
-			render 'static_pages/home'
+			@microposts = @post.microposts.paginate(page: params[:page])
+			render 'posts/show'
 		end
 	end
 

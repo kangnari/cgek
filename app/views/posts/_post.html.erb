@@ -1,0 +1,10 @@
+<li>
+	<span class="content">
+		<%= post.content %>
+		<%= link_to "Sign Up", signup_path, class: "right btn btn-large btn-primary" %>
+	</span>
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(post.created_at) %> ago.
+	</span>
+
+</li>

@@ -1,39 +1,43 @@
 require 'spec_helper'
 
-describe Micropost do
+describe Post do
+
 	let(:user) { FactoryGirl.create(:user) }
-	let(:post) { FactoryGirl.create(:post, user: user) }
-	let(:micropost) { FactoryGirl.create(:micropost, user: user, post: post)}
+	before { @post = user.posts.build(title: "Lorem ipsum", content: "Lorem ipsum") }
 
-	subject { micropost }
+	subject { @post }
 
+	it { should respond_to(:title) }
 	it { should respond_to(:content) }
 	it { should respond_to(:user_id) }
-	it { should respond_to(:post_id) }
 	it { should respond_to(:user) }
-	it { should respond_to(:post) }
+	it { should respond_to(:microposts) }
 	its(:user) { should eq user }
-	its(:post) { should eq post }
 
 	it { should be_valid }
 
 	describe "when user_id is not present" do
-		before { micropost.user_id = nil }
+		before { @post.user_id = nil }
 		it { should_not be_valid }
 	end
 
-	describe "when post_id is not present" do
-		before { micropost.post_id = nil }
+	describe "with blank title" do
+		before { @post.title = " " }
+		it { should_not be_valid }
+	end
+
+	describe "with title that is too long" do
+		before { @post.title = "a" * 51 }
 		it { should_not be_valid }
 	end
 
 	describe "with blank content" do
-		before { micropost.content = " " }
+		before { @post.content = " " }
 		it { should_not be_valid }
 	end
 
 	describe "with content that is too long" do
-		before { micropost.content = "a" * 151 }
+		before { @post.content = "a" * 501 }
 		it { should_not be_valid }
 	end
 end

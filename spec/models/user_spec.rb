@@ -20,6 +20,7 @@ describe User do
 	it { should respond_to(:admin) }
 	it { should respond_to(:image) }
 	it { should respond_to(:microposts) }
+	it { should respond_to(:posts) }
 
 	it { should be_valid }
 	it { should_not be_admin}
@@ -165,11 +166,21 @@ describe User do
 
 	describe "micropost associations" do
 		before { @user.save }
+		let!(:older_post) do
+			FactoryGirl.create(:post, user: @user, created_at: 1.day.ago)
+		end
+		let!(:newer_post) do
+			FactoryGirl.create(:post, user: @user, created_at: 1.hour.ago)
+		end
 		let!(:older_micropost) do
-			FactoryGirl.create(:micropost, user: @user, created_at: 1.day.ago)
+			FactoryGirl.create(:micropost, user: @user, post: older_post, created_at: 1.day.ago)
 		end
 		let!(:newer_micropost) do
-			FactoryGirl.create(:micropost, user: @user, created_at: 1.hour.ago)
+			FactoryGirl.create(:micropost, user: @user, post: older_post, created_at: 1.hour.ago)
+		end
+
+		it "should have the right posts in the right order" do
+			expect(@user.posts.to_a).to eq [newer_post, older_post]
 		end
 
 		it "should have the right microposts in the right order" do
@@ -177,9 +188,14 @@ describe User do
 		end
 
 		it "should destroy associated microposts" do
+			posts = @user.posts.to_a
 			microposts = @user.microposts.to_a
 			@user.destroy
+			expect(posts).not_to be_empty
 			expect(microposts).not_to be_empty
+			posts.each do |post|
+				expect(Post.where(id: post.id)).to be_empty
+			end
 			microposts.each do |micropost|
 				expect(Micropost.where(id: micropost.id)).to be_empty
 			end

@@ -57,15 +57,24 @@ describe "Authentication" do
 				end
 			end
 
-			describe "in the Microposts controller" do
+			describe "in the Posts controller" do
 				describe "submitting to the create action" do
-					before { post microposts_path }
+					before { post posts_path }
 					specify { expect(response).to redirect_to(signin_path) }
 				end
 
 				describe "submitting to the destroy action" do
-					before { delete micropost_path(FactoryGirl.create(:micropost)) }
+					before { delete post_path(FactoryGirl.create(:post)) }
 					specify { expect(response).to redirect_to(signin_path) }
+				end
+
+				describe "submitting to the show action" do
+					before do
+						@p1 = Post.create(user: user, title: "a title", content: "lalala" )
+						visit post_path(@p1)
+					end
+					it { should have_title("a title") }
+					it { should have_content("lalala") }
 				end
 			end
 
