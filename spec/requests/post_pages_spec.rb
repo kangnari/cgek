@@ -30,4 +30,21 @@ describe "PostPages" do
 			end
 		end
 	end
+
+	describe "post destruction" do
+		let(:post) { FactoryGirl.create(:post, user: user) }
+		before { FactoryGirl.create(:micropost, user: user, post: post) }
+
+		describe "as correct user" do
+			before { visit root_path }
+
+			it "should delete a post" do
+				expect { first(:link, "delete").click }.to change(Post, :count).by(-1)
+			end
+
+			it "shoudl delete associated microposts" do
+				expect { first(:link, "delete").click }.to change(Micropost, :count).by(-1)
+			end
+		end
+	end
 end

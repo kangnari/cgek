@@ -1,10 +1,18 @@
 <li>
 	<span class="content">
-		<%= post.content %>
-		<%= link_to "Sign Up", signup_path, class: "right btn btn-large btn-primary" %>
+		<%= post.title %><br/>
+		<%= wrap(post.content) %>
+		<%= link_to "See Post", post_url(post), class: "pull-right btn btn-large btn-primary" %>
 	</span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(post.created_at) %> ago.
 	</span>
-
+	<% if current_user?(post.user) %>
+		<%= link_to "delete", post, method: :delete,
+									data: { confirm: "Are you sure?" },
+									title: post.title %>
+	<% end %>
+	<ol class="microposts">
+		<%= render post.microposts %>
+	</ol>
 </li>

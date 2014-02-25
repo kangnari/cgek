@@ -1,0 +1,19 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+    <section>
+      <%= render 'shared/post_form' %>
+    </section>
+  </aside>
+  <div class="span8">
+
+    <ul>
+      <%= render @posts %>
+    </ul>
+
+    <%= will_paginate @posts %>
+
+  </div>
+</div>

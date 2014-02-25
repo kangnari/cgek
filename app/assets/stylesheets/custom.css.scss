@@ -180,6 +180,17 @@ input {
 
 
 
+/* posts */
+
+.countdown {
+	display: inline;
+	color: $grayLight;
+}
+
+
+
+
+
 
 
 /* microposts */
@@ -200,11 +211,6 @@ input {
 
 .timestamp {
 	color: $grayLight;
-}
-
-.gravatar {
-	float: left;
-	margin-right: 10px;
 }
 
 aside {

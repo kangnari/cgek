@@ -1,6 +1,11 @@
 <li>
 	<span class="content">
-		<%= micropost.content %>
+		<% if !(controller.class == UsersController and controller.action_name == 'show') %>
+			<%= image_tag(micropost.user.image.url(:thumb), alt: micropost.user.firstname+' '+micropost.user.lastname, class: "avatar") %>
+			<%= link_to micropost.user.firstname+' '+micropost.user.lastname, micropost.user %></b>
+			<br/>
+		<% end %>
+		<%= wrap(micropost.content) %>
 		<% if controller.class == UsersController and controller.action_name == 'show' %>
 			<%= link_to "See Post", post_url(micropost.post), class: "pull-right btn btn-large btn-primary" %>
 		<% end %>
@@ -8,4 +13,7 @@
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(micropost.created_at) %> ago.
 	</span>
+	<% if current_user?(micropost.user) %>
+		<%= link_to "delete", [micropost.post, micropost], method: :delete, data: { confirm: "Are you sure?" }, title: micropost.content %>	
+	<% end %>
 </li>
