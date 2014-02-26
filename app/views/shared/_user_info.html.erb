@@ -1,10 +1,7 @@
 <%= image_tag(current_user.image.url(:index), alt: current_user.firstname + ' ' + current_user.lastname, class: "avatar") %>
 <h1>
-	<%= current_user.firstname + ' ' + current_user.lastname %>
+	<%= link_to current_user.firstname+' '+current_user.lastname, current_user %>
 </h1>
-<span>
-	<%= link_to "view profile", current_user %>
-</span>
 <span>
 	<%= pluralize(current_user.microposts.count, "responses") %>
 </span>

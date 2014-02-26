@@ -18,10 +18,12 @@ $grayMediumLight: #eaeaea;
 
 html {
 	overflow-y: scroll;
+	overflow-x: scroll;
 }
 
 body {
 	padding-top: 60px;
+	background-color: #ECF5E0;
 }
 
 section {
@@ -38,6 +40,8 @@ textarea {
 		margin-bottom: 10px;
 	}
 }
+
+
 
 
 
@@ -76,13 +80,27 @@ p {
 
 
 
+
+/* navbar */
+.navbar-inner {
+	background-color: #C4E070;
+	background-image: none;
+}
+
+
+
+
+
+
+
+
 /* header */
 
 #logo {
 	float: left;
 	margin-right: 10px;
 	font-size: 1.7em;
-	color: white;
+	color: #EEFACA;
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	padding-top: 9px;
@@ -93,6 +111,7 @@ p {
 		text-decoration: none;
 	}
 }
+
 
 
 
@@ -180,12 +199,23 @@ input {
 
 
 
+
+
 /* posts */
 
 .countdown {
 	display: inline;
 	color: $grayLight;
 }
+
+.feed-post {
+	background: #D1E78D;
+	border-width: 5px;
+	padding: 15px 0px 15px 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 
 
 

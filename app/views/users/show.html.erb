@@ -6,15 +6,27 @@
 				<%= image_tag(@user.image.url(:profile), alt: @user.firstname + ' ' + @user.lastname, class: "avatar") %>
 				<%= @user.firstname + ' ' + @user.lastname %>
 			</h1>
+			<%= pluralize(@user.microposts.count, "responses") %>
 		</section>
 	</aside>
 	<div class="span8">
-		<% if @user.microposts.any? %>
-			<h3>Responses (<%= @user.microposts.count %>)</h3>
-			<ol class="microposts">
-				<%= render @microposts %>
-			</ol>
-			<%= will_paginate @microposts %>
-		<% end %>
+		<div class="row">
+			<% if @user.posts.any? && @user == current_user %>
+				<h3>Posts (<%= @user.posts.count %>)</h3> (private)
+				<ol class="microposts">
+					<%= render @posts %>
+				</ol>
+				<%= will_paginate @posts, :param_name => 'post_page' %>
+			<% end %>
+		</div>
+		<div class="row">
+			<% if @user.microposts.any? %>
+				<h3>Responses (<%= @user.microposts.count %>)</h3>
+				<ol class="microposts">
+					<%= render @microposts %>
+				</ol>
+				<%= will_paginate @microposts, :param_name => 'micropost_page' %>
+			<% end %>
+		</div>
 	</div>
 </div>
