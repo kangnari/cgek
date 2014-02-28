@@ -8,24 +8,41 @@
 			</h1>
 			<%= pluralize(@user.microposts.count, "responses") %>
 		</section>
+		<% if @user == current_user %>
+			<section class="row span3">
+				<h1>Post anonymously</h1>
+				<%= render 'shared/post_form' %>
+			</section>
+		<% end %>
 	</aside>
 	<div class="span8">
 		<div class="row">
-			<% if @user.posts.any? && @user == current_user %>
-				<h3>Posts (<%= @user.posts.count %>)</h3> (private)
-				<ol class="microposts">
-					<%= render @posts %>
-				</ol>
-				<%= will_paginate @posts, :param_name => 'post_page' %>
+			<% if @user == current_user %>
+				<h3>Posts (<%= @user.posts.count %>)</h3>
+				Your posts are kept anonymous.
+				<% if @user.posts.any? %>
+					<ol class="microposts">
+						<%= render @posts %>
+					</ol>
+					<div class="pagination-centered">
+						<%= will_paginate @posts, :param_name => 'post_page' %>
+					</div>
+				<% else %>
+					<h2>You haven't created any posts yet.</h2>
+				<% end %>
 			<% end %>
 		</div>
 		<div class="row">
+			<h3>Responses (<%= @user.microposts.count %>)</h3>
 			<% if @user.microposts.any? %>
-				<h3>Responses (<%= @user.microposts.count %>)</h3>
 				<ol class="microposts">
 					<%= render @microposts %>
 				</ol>
 				<%= will_paginate @microposts, :param_name => 'micropost_page' %>
+			<% else %>
+				<% if @user == current_user %>
+					<h2>You haven't responded to any posts yet.</h2>
+				<% end %>
 			<% end %>
 		</div>
 	</div>

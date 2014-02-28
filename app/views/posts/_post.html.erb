@@ -1,7 +1,7 @@
 <% if controller.class == StaticPagesController and controller.action_name == 'home' %>
 	<div class="span4 feed-post">
 		<span class="content">
-			<%= post.title %><br/>
+			<h3 style="text-align: center"><%= post.title %></h3><br/>
 			<%= wrap(post.content) %>
 		</span>
 		<span class="timestamp">
