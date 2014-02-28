@@ -18,7 +18,7 @@ describe User do
 	it { should respond_to(:remember_token) }
 	it { should respond_to(:authenticate) }
 	it { should respond_to(:admin) }
-	it { should respond_to(:image) }
+	it { should respond_to(:avatar) }
 	it { should respond_to(:microposts) }
 	it { should respond_to(:posts) }
 

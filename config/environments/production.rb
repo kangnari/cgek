@@ -77,4 +77,18 @@ Cgek::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['CGEK'],
+      :access_key_id => ENV['AKIAINFW4SNUEE5F6LWA']
+      :secret_access_key => ENV['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']
+    }
+  }
 end
+
+
+
+
+

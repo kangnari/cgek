@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 		if @user.save
 			sign_in @user
 			flash[:success] = "Welcome to Cal@Heart."
-			redirect_to @user
+			redirect_to root_url
 		else
 			render 'new'
 		end
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 		def user_params
 			params.require(:user).permit(:firstname, :lastname, :email,
 										 :password, :password_confirmation,
-										 :image)
+										 :avatar)
 		end
 
 		# Before filters

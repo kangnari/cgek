@@ -1,7 +1,7 @@
 <li>
 	<span class="content">
 		<% if !(controller.class == UsersController and controller.action_name == 'show') %>
-			<%= image_tag(micropost.user.image.url(:thumb), alt: micropost.user.firstname+' '+micropost.user.lastname, class: "avatar") %>
+			<%= image_tag(micropost.user.avatar.url(:thumb), alt: micropost.user.firstname+' '+micropost.user.lastname, class: "avatar") %>
 			<%= link_to micropost.user.firstname+' '+micropost.user.lastname, micropost.user %></b>
 			<br/>
 		<% end %>

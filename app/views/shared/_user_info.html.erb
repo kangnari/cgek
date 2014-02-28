@@ -1,4 +1,4 @@
-<%= image_tag(current_user.image.url(:index), alt: current_user.firstname + ' ' + current_user.lastname, class: "avatar") %>
+<%= image_tag(current_user.avatar.url(:index), alt: current_user.firstname + ' ' + current_user.lastname, class: "avatar") %>
 <h1>
 	<%= link_to current_user.firstname+' '+current_user.lastname, current_user %>
 </h1>
