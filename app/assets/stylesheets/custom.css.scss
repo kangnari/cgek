@@ -209,11 +209,14 @@ input {
 }
 
 .feed-post {
+	width: 45%;
 	background: #D1E78D;
 	border-width: 5px;
 	padding: 15px 0px 15px 15px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	display: block;
+	float: left;
 }
 
 

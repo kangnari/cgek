@@ -10,9 +10,11 @@
       <div class="span2"></div>
     </div>
 
-    <ul>
-      <%= render @posts %>
-    </ul>
+    <div id="masonry-container">
+      <ul>
+        <%= render @posts %>
+      </ul>
+    </div>
 
     <div class="pagination-centered">
       <%= will_paginate @posts %>
@@ -26,3 +28,16 @@
     Private chat coming soon.
   </aside>
 </div>
+
+<script>
+  $(function() {
+    var $container = $('#masonry-container');
+      $container.imagesLoaded(function(){
+        $container.masonry({
+          itemSelector: '.feed-post',
+          gutter: 20,
+          columnWidth: '.feed-post'
+      });
+    });
+  });
+</script>
