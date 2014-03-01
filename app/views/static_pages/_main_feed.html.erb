@@ -14,12 +14,15 @@
       <%= render @posts %>
     </ul>
 
-    <%= will_paginate @posts %>
+    <div class="pagination-centered">
+      <%= will_paginate @posts %>
+    </div>
 
   </div>
   <aside class="span3">
     <section>
       <%= render 'shared/user_info' %>
     </section>
+    Private chat coming soon.
   </aside>
 </div>
