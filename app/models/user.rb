@@ -12,11 +12,14 @@ class User < ActiveRecord::Base
 					  uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX, message: "must have at least one capital letter, one lowercase letter, and one number."}
-	has_attached_file :avatar, styles: {
-		:profile => "100x100",
-		:index => "75x75",
-		:thumb => "64x64"
-	}
+	has_attached_file :avatar,
+		:default_url => "missing_:style.png", 
+		styles: {
+			:profile => "100x100",
+			:index => "75x75",
+			:thumb => "64x64",
+		}
+	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64
