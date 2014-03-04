@@ -1,6 +1,6 @@
 <% provide(:title, @post.title) %>
 <h1><%= @post.title %></h1>
-<%= wrap(@post.content) %>
+<p class="post"><%= wrap(@post.content) %></p>
 <% if signed_in? %>
 	<section>
 		<%= render 'shared/micropost_form' %>
