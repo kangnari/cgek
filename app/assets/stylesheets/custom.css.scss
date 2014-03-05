@@ -23,7 +23,6 @@ html {
 
 body {
 	padding-top: 60px;
-	background-color: #ECF5E0;
 }
 
 section {
@@ -41,6 +40,17 @@ textarea {
 	}
 }
 
+.container-body {
+	margin-top: 50px;
+}
+
+.btn {
+	background-color: #01c88d;
+	background-image: none;
+	border-style: none;
+	border-radius: 0%;
+	text-shadow: none;
+}
 
 
 
@@ -82,12 +92,22 @@ p {
 
 
 /* navbar */
-.navbar-inner {
-	background-color: #C4E070;
-	background-image: none;
+.navbar-brand, .navbar li a {
+    line-height: 50px;
+    height: 50px;
+    padding-top: 0;
 }
 
+.navbar-inner {
+	background-color: #ffffff;
+	background-image: none;
+	box-shadow: none !important;
+}
 
+.caret {
+	vertical-align: middle;
+	padding-bottom: 10px;
+}
 
 
 
@@ -98,17 +118,30 @@ p {
 
 #logo {
 	float: left;
-	margin-right: 10px;
 	font-size: 1.7em;
-	color: #EEFACA;
+	color: #01c88d;
+	padding-top: 25px;
 	text-transform: uppercase;
 	letter-spacing: -1px;
-	padding-top: 9px;
 	font-weight: bold;
-	line-height: 1;
 	&:hover {
-		color: white;
 		text-decoration: none;
+	}
+}
+
+
+
+
+
+
+/* landing page */
+.hero-unit {
+	background-color: #ffffff;
+	h1 {
+		line-height: 1.1em;
+	}
+	p {
+		text-align: center;
 	}
 }
 
@@ -210,13 +243,14 @@ input {
 
 .feed-post {
 	width: 43%;
-	background: #D1E78D;
+	background: #f3f3f3;
 	border-width: 5px;
-	padding: 15px 10px 15px 15px;
+	padding: 1.071em .714em 1.071em 1.071em;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	display: block;
 	float: left;
+	color: #787878;
 }
 
 .post {

@@ -4,7 +4,7 @@
 		<section>
 			<h1>
 				<%= image_tag(@user.avatar.url(:profile), alt: @user.firstname + ' ' + @user.lastname, class: "avatar") %>
-				<%= @user.firstname + ' ' + @user.lastname %>
+				<%= wrap(@user.firstname + ' ' + @user.lastname) %>
 			</h1>
 			<%= pluralize(@user.microposts.count, "responses") %>
 		</section>
