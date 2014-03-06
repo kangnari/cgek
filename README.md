@@ -1,28 +1,5 @@
-== README
+UCB STC web app competition, 2014
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Although UC Berkeley offers mental health services to students, students are often reluctant to reach out due to personal qualms and fear of social stigma.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Cal@Heart is a growing online community focused on developing emotional wellbeing and confidence at Cal. We aim to provide users with an environment that fosters open communication. Users may create profiles and post anonymously about personal issues in a safe virtual space. They may also respond to other users’ posts with encouragement and/or advice. Upcoming features include anonymous private messaging between users and video testimonials.
