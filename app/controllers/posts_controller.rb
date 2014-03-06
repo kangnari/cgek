@@ -8,8 +8,8 @@ class PostsController < ApplicationController
 			flash[:success] = "Post created."
 			redirect_to root_url
 		else
-			@posts = Post.paginate(page: params[:page])
-			render 'static_pages/home'
+			flash[:error] = "Post could not be created. Please make sure title and content are filled, and that content is less than 500 characters."
+			redirect_to root_url
 		end
 	end
 
