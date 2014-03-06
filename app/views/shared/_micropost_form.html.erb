@@ -1,7 +1,15 @@
-<%= form_for([@post, @micropost]) do |f| %>
-	<%= render :partial => 'shared/error_messages', :locals => {:object => @micropost} %>
-	<div class="field">
-		<%= f.text_area :content, placeholder: "Respond..." %>
+<div class="row">
+	<div class="span2"></div>
+	<div class="span8">
+		<%= form_for([@post, @micropost]) do |f| %>
+			<%= render :partial => 'shared/error_messages', :locals => {:object => @micropost} %>
+			<div class="field">
+				<%= f.text_area :content, placeholder: "Respond..." %>
+			</div>
+			<div class="pagination-centered">
+				<%= f.submit "Respond", class: "btn btn-large btn-primary" %>
+			<div>
+		<% end %> 
 	</div>
-	<%= f.submit "Respond", class: "btn btn-large btn-primary" %>
-<% end %>
+	<div class="span2"></div>
+</div>

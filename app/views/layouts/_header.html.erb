@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-default">
 	<div class="navbar-inner">
-		<div class="container">
+		<div class="container-fluid">
 			<%= link_to "Cal@Heart", root_path, id: "logo" %>
 			<nav>
 				<ul class="nav pull-right">
@@ -19,7 +19,7 @@
 							</ul>
 						</li>
 					<% else %>
-						<li><%= link_to "Sign In",	signin_path %></li>
+						<%= link_to "Sign In",	signin_path, class: "btn navbar-button"%>
 					<% end %>
 				</ul>
 			</nav>

@@ -50,6 +50,16 @@ textarea {
 	border-style: none;
 	border-radius: 0%;
 	text-shadow: none;
+	&:hover {
+		background-color: #01c88d;
+		color: #ffffff;
+	}
+}
+
+.btn-signup {
+	font-size: 1.3em !important;
+	height: 40px;
+	line-height: 40px;
 }
 
 
@@ -107,6 +117,16 @@ p {
 .caret {
 	vertical-align: middle;
 	padding-bottom: 10px;
+}
+
+.navbar-button {
+	line-height: 50px;
+	color: white !important;
+	font-size: 1.2em;
+	&:hover {
+		background-color: #ffffff;
+		color: #01c88d !important;
+	}
 }
 
 
