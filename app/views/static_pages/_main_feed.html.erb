@@ -4,14 +4,19 @@
       <div class="span2"></div>
       <div class="span5">
         <section>
+          <h1>Post anonymously</h1>
           <%= render 'shared/post_form' %>
         </section>  
       </div>
       <div class="span2"></div>
     </div>
 
+    <br/>
+    <br/>
+    <h1>Recent Posts</h1>
+
     <div id="masonry-container">
-      <ul>
+      <ul> 
         <%= render @posts %>
       </ul>
     </div>
