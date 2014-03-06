@@ -11,6 +11,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
 gem 'masonry-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

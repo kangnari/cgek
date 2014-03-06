@@ -4,8 +4,9 @@
 		<%= form_for([@post, @micropost]) do |f| %>
 			<%= render :partial => 'shared/error_messages', :locals => {:object => @micropost} %>
 			<div class="field">
-				<%= f.text_area :content, placeholder: "Respond..." %>
+				<%= f.text_area :content, placeholder: "Respond...", class: "text_countdown" %>
 			</div>
+			<span class="countdown"></span>
 			<div class="pagination-centered">
 				<%= f.submit "Respond", class: "btn btn-large btn-primary" %>
 			<div>

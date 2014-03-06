@@ -9,7 +9,7 @@
 			<%= pluralize(@user.microposts.count, "responses") %>
 		</section>
 		<% if @user == current_user %>
-			<section class="row span3">
+			<section class="row" id="user-post">
 				<h1>Post anonymously</h1>
 				<%= render 'shared/post_form' %>
 			</section>

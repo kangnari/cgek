@@ -138,15 +138,7 @@ p {
 
 #logo {
 	float: left;
-	font-size: 1.7em;
-	color: #01c88d;
-	padding-top: 25px;
-	text-transform: uppercase;
-	letter-spacing: -1px;
-	font-weight: bold;
-	&:hover {
-		text-decoration: none;
-	}
+	padding-top: 10px;
 }
 
 
@@ -157,12 +149,17 @@ p {
 /* landing page */
 .hero-unit {
 	background-color: #ffffff;
+	border-radius: none !important;
 	h1 {
 		line-height: 1.1em;
 	}
 	p {
 		text-align: center;
 	}
+}
+
+.landing-container {
+	border-top: solid;
 }
 
 
@@ -198,6 +195,11 @@ aside {
 .avatar {
 	float: left;
 	margin-right: 10px;
+}
+
+#user-post {
+	padding-right: 40px;
+	border-top: none;
 }
 
 

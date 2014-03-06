@@ -1,8 +1,8 @@
 <header class="navbar navbar-fixed-top navbar-default">
 	<div class="navbar-inner">
 		<div class="container-fluid">
-			<%= link_to "Cal@Heart", root_path, id: "logo" %> 
-			<nav>
+			<%= link_to image_tag('logo.png', alt: "Cal@Heart", id: "logo"), root_path %>
+			<nav> 
 				<ul class="nav pull-right">
 					<li><%= link_to "Home",			root_path %></li>
 					<li><%= link_to "Emergency",	emergency_path %></li>
