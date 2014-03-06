@@ -17,7 +17,7 @@
 	</aside>
 	<div class="span8">
 		<div class="row">
-			<% if @user == current_user %>
+			<% if @user == current_user || current_user.admin? %>
 				<h3>Posts (<%= @user.posts.count %>)</h3>
 				Your posts are kept anonymous.
 				<% if @user.posts.any? %>
