@@ -30,9 +30,43 @@
     <section>
       <%= render 'shared/user_info' %>
     </section>
-    Private chat coming soon.
+    <p>Private chat coming soon.</p>
+    <a href = "#communityRules" role="button" data-toggle="modal" class="btn btn-large btn-primary">Community Rules</a>
   </aside>
 </div>
+
+<!-- Modal for Community Rules -->
+<div id="communityRules" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h1 id = "myModalLabel">Community Rules</h2>
+  </div>
+  <div class="modal-body">
+    <ol>
+      <li>
+        Please be thoughtful and respectful of the content that you post. Do not reveal private information about others, including names, majors, contact information, or physical appearance.
+      </li>
+      <li>
+        Always be mindful of your responses to other posts. Feel free to keep things lighthearted, but do not make light of other people's struggles, no matter how you feel personally about the severity of their issues. 
+      </li>
+      <li>
+        Please refrain from discussing your own political or religious views, unless it pertains to a relevant emotional issue you would like to share. 
+      </li>
+      <li>
+        If you are in danger of physically harming yourself or others, please refer to the Emergency page and contact medical professionals IMMEDIATELY. 
+      </li>
+      <li>
+        Posts are regularly monitored by a community moderator. If a post is deemed inappropriate or disrespectful to other users, it will be taken down and the user account may be deactivated. 
+      </li>
+    </ol>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-large btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div> <!-- end modal -->
+
+
+
 
 <script>
   $(function() {
